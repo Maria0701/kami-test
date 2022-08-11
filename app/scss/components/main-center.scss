@@ -1,0 +1,44 @@
+.main-center {
+    padding-top: 40px;
+    padding-bottom: 15px;
+}
+
+.main-center__h2 {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 39.5px;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 29px;
+    color: var(--black);
+
+
+
+    span {
+        height: 33px;
+        width: 33px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+}
+
+@media (min-width: $tablet) {
+    .main-center {
+        padding-top: 42px;
+        padding-bottom: 106px;
+    }
+    
+    .main-center__h2 {
+        gap: 12px;
+        margin-bottom: 42px;
+        font-size: 36px;
+        line-height: 42px;
+        color: var(--black);
+
+        span {
+            height: 36px;
+            width: 36px;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+.main-top__container {
+    position: relative;
+    height: 582px;
+}
+
+@media (min-width: $tablet) {
+    .main-top__container {
+        height: 750px;
+    }
+}
+

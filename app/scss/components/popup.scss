@@ -1,0 +1,238 @@
+.popup {
+    position:fixed;
+    top: -10000px;
+    left: 50%;
+    z-index: 4;
+    max-width: 593px;
+    width: calc(100% - var(--padding)*2);
+    background-color: var(--white);
+    border-radius: 14px;
+    transform: translate(-50%, -50%);
+   
+}
+
+.popup.opened {
+    top: 50%;
+    animation-duration: 1s;
+    animation-name: formdrop;
+    animation-iteration-count: 1;
+}
+
+.popup__wrapper {
+    position: relative;
+    padding-top: 27px;
+    padding-bottom: 0;
+}
+
+.popup__name {
+    padding-left: var(--padding);
+    padding-right: var(--padding);
+    margin-top: 0;
+    margin-bottom: 24px;
+    color: var(--textColor);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 128.5%;
+    text-align: center;
+}
+
+.popup__form {
+    border-top: 1px solid #DEDEDE;
+}
+
+.popup__close {
+    position: absolute;
+    top: -49px;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #959a9f;
+    background-image: url(../../img/cross.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 17px 17px;
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover,
+    &:focus {
+        background-color: var(--gray2);
+    }
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 16px;
+    padding-top: 24px;
+    padding-left: var(--padding);
+    padding-right: var(--padding);
+}
+
+::placeholder {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 128.5%;
+    color: #A1A1A1;
+}
+.mistake::placeholder {
+    font-weight: 500;
+    color: var(--mistakeColor);
+    opacity: 1;
+};
+
+.form__label {
+    display: flex;
+}
+
+.form__label--agreed {
+    position: relative;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 16px;
+    line-height: 18px;
+    color: #A1A1A1;
+
+    
+    a {
+        display: block;
+        color: var(--textColor);
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            color: var(--gray2);
+        }               
+    }
+}
+
+.form__check {
+    position: absolute;
+    opacity: 0;
+}
+
+.form__check-fake {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 19px;
+    height: 19px;
+    color: transparent;
+    background: var(--white);
+    border: 1px solid #A1A1A1;
+    border-radius: 2px;
+}
+
+.form__check:checked + .form__check-fake {
+    color: var(--textColor);
+    background-color: var(--yellow);
+    background-position: center;
+    background-repeat: no-repeat;    
+}
+
+.form__check.mistake + .form__check-fake {
+    border-color: var(--mistakeColor);
+}
+
+.form__input,
+.form__textarea {
+    flex-basis: 100%;
+    padding-left: 19px;
+    padding-right: 19px;
+    padding-top: 15px;
+    padding-bottom: 14px;
+    background-color: var(--white);
+    border: 1px solid #A1A1A1;
+    border-radius: 2px;
+    transition: color 0.3s ease-in-out,
+        border-color 0.3s ease-in-out;
+
+    &:focus,
+    &:focus-within,
+    &:hover {
+        color: var(--textColor);
+        border-color: var(--textColor);
+        outline: 0;
+    }
+}
+
+.form__input.mistake,
+.form__textarea.mistake {
+    color: var(--mistakeColor);
+    border: 1px solid var(--mistakeColor);
+}
+
+.form__btn {
+    padding-top: 23px;
+    padding-bottom: 26px;
+    margin-left: -16px;
+    margin-right: -16px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 128.5%;
+    text-align: center;
+    color: #100F0F;
+    text-align: center;
+    background-color: var(--yellow);
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 0 0 14px 14px;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        background-color: #FFE54A;
+    }
+
+    &:active {
+        background-color: #FFC700;
+        cursor: grab;
+    }
+}
+
+@media (min-width: $tablet) {
+    .popup__name {
+        margin-bottom: 33px;
+        font-size: 30px;
+        line-height: 128.5%;
+    }
+
+    .popup__wrapper {
+        padding-top: 29px;
+        padding-bottom: 38px;
+    }
+
+    .popup__form {
+        padding-right: 90px;
+        padding-left: 90px;
+    }
+
+    .form {
+        grid-gap: 18px;
+    }
+
+    .form__btn {
+        padding-top: 14px;
+        padding-bottom: 13px;
+        padding-right: 58px;
+        padding-left: 58px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 18px;
+        line-height: 128.5%;
+        border-radius: 5px;
+    }
+
+    .form__label--agreed {
+
+        a {
+            display: inline;
+        }
+    }
+}
+
